@@ -14,27 +14,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+// region @MadeByLLM("gpt-6", id = "android13-arm64")
 
 @file:JvmName("StorageUtils")
-@file:Suppress("DEPRECATION")
 
 package me.vkryl.android
 
-import android.os.Build
 import android.os.StatFs
 
-fun StatFs.freeMemorySize (): Long {
-  return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-    blockSizeLong * availableBlocksLong
-  } else {
-    blockSize.toLong() * availableBlocks.toLong()
-  }
-}
+fun StatFs.freeMemorySize (): Long = blockSizeLong * availableBlocksLong
 
-fun StatFs.totalMemorySize (): Long {
-  return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-    blockSizeLong * blockCountLong
-  } else {
-    blockSize.toLong() * blockCount.toLong()
-  }
-}
+fun StatFs.totalMemorySize (): Long = blockSizeLong * blockCountLong
+// endregion

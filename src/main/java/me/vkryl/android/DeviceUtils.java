@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+// region @MadeByLLM("gpt-6", id = "android13-arm64")
 
 package me.vkryl.android;
 
@@ -40,11 +41,7 @@ public final class DeviceUtils {
     try {
       int flags = 0;
       if (allowPastInstallations) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-          flags |= PackageManager.MATCH_UNINSTALLED_PACKAGES;
-        } else {
-          flags |= PackageManager.GET_UNINSTALLED_PACKAGES;
-        }
+        flags |= PackageManager.MATCH_UNINSTALLED_PACKAGES;
       }
       ApplicationInfo info = context.getPackageManager().getApplicationInfo(packageName, flags);
       return info != null;
@@ -61,3 +58,4 @@ public final class DeviceUtils {
     return false;
   }
 }
+// endregion

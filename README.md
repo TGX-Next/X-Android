@@ -1,5 +1,7 @@
 # X-Android
 
+This TGX-Next fork targets Android 13+ (API 33+) in the arm64 Telegram X build.
+
 Small set of basic components for Android apps.
 
 ## Licence

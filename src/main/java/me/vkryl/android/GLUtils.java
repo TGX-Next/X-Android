@@ -14,13 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+// region @MadeByLLM("gpt-6", id = "android13-arm64")
 
 package me.vkryl.android;
 
 import android.os.Build;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -30,7 +30,7 @@ import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 
-@RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
+
 /*package-private*/ class GLUtils {
 
   public interface DisplayCallback {
@@ -140,3 +140,4 @@ import javax.microedition.khronos.egl.EGLSurface;
     return renderer.get();
   }
 }
+// endregion

@@ -16,6 +16,7 @@
  *
  * File created on 11/27/2017
  */
+// region @MadeByLLM("gpt-6", id = "android13-arm64")
 
 package me.vkryl.android.widget;
 
@@ -242,11 +243,9 @@ public class FrameLayoutFix extends android.widget.FrameLayout implements Animat
     if (exceptionCallback != null) {
       this.exceptionCallback.runWithData(e);
     } else {
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
-        throw e;
-      // for some reason getChildAt(i) returned null, therefore exception occurred
-      e.printStackTrace();
+      throw e;
     }
   }
 
 }
+// endregion

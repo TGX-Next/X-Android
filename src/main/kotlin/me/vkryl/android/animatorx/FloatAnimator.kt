@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+// region @MadeByLLM("gpt-6", id = "android13-arm64")
 
 @file:Suppress("MemberVisibilityCanBePrivate")
 
@@ -23,7 +24,6 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.TimeInterpolator
 import android.animation.ValueAnimator
-import android.os.Build
 
 fun interface FloatAnimatorListener {
   fun onValueChange(newValue: Float)
@@ -86,7 +86,7 @@ class FloatAnimator @JvmOverloads constructor(
   }
 
   private fun startAnimation(): Boolean {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !ValueAnimator.areAnimatorsEnabled()) {
+    if (!ValueAnimator.areAnimatorsEnabled()) {
       return false
     }
     val animator = ValueAnimator.ofFloat(0f, 1f)
@@ -116,3 +116,4 @@ class FloatAnimator @JvmOverloads constructor(
     }
   }
 }
+// endregion

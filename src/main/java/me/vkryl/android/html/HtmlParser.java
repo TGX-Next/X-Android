@@ -16,6 +16,7 @@
  *
  * File created on 11/09/2022, 12:41.
  */
+// region @MadeByLLM("gpt-6", id = "android13-arm64")
 
 package me.vkryl.android.html;
 
@@ -53,20 +54,12 @@ public class HtmlParser {
     } else {
       tagHandler = null;
     }
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-      return Html.fromHtml(
-        htmlText,
-        Html.FROM_HTML_MODE_COMPACT,
-        imageGetter,
-        tagHandler
-      );
-    } else {
-      return Html.fromHtml(
-        htmlText,
-        imageGetter,
-        tagHandler
-      );
-    }
+    return Html.fromHtml(
+      htmlText,
+      Html.FROM_HTML_MODE_COMPACT,
+      imageGetter,
+      tagHandler
+    );
   }
 
   private static class HtmlTagHandler implements Html.TagHandler {
@@ -148,3 +141,4 @@ public class HtmlParser {
     }
   }
 }
+// endregion

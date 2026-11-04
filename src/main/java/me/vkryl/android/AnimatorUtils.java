@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+// region @MadeByLLM("gpt-6", id = "android13-arm64")
 
 package me.vkryl.android;
 
@@ -50,11 +51,7 @@ public final class AnimatorUtils {
   }
 
   public static float getFraction (ValueAnimator animator) {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
-      return animator.getAnimatedFraction();
-    } else {
-      return (Float) animator.getAnimatedValue();
-    }
+    return animator.getAnimatedFraction();
   }
 
   public static void startAnimator (final View view, final Animator animator) {
@@ -83,3 +80,4 @@ public final class AnimatorUtils {
     }
   }
 }
+// endregion

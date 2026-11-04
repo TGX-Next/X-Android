@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+// region @MadeByLLM("gpt-6", id = "android13-arm64")
 
 package me.vkryl.android;
 
@@ -97,17 +98,15 @@ public class AppInstallationUtil {
   @Nullable
   public static String getInitiatorPackageName (Context context) {
     final String packageName = context.getPackageName();
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-      try {
-        android.content.pm.InstallSourceInfo sourceInfo = context.getPackageManager().getInstallSourceInfo(packageName);
-        String initiatingId = sourceInfo.getInitiatingPackageName();
-        if (!StringUtils.isEmpty(initiatingId)) {
-          return initiatingId;
-        }
-      } catch (Throwable t) {
-        android.util.Log.e("x-core", "Unable to determine initiator package name", t);
-        t.printStackTrace();
+    try {
+      android.content.pm.InstallSourceInfo sourceInfo = context.getPackageManager().getInstallSourceInfo(packageName);
+      String initiatingId = sourceInfo.getInitiatingPackageName();
+      if (!StringUtils.isEmpty(initiatingId)) {
+        return initiatingId;
       }
+    } catch (Throwable t) {
+      android.util.Log.e("x-core", "Unable to determine initiator package name", t);
+      t.printStackTrace();
     }
     return null;
   }
@@ -116,21 +115,19 @@ public class AppInstallationUtil {
   @SuppressWarnings("deprecation")
   public static String getInstallerPackageName (Context context) {
     final String packageName = context.getPackageName();
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-      try {
-        android.content.pm.InstallSourceInfo sourceInfo = context.getPackageManager().getInstallSourceInfo(packageName);
-        String installerId = sourceInfo.getInstallingPackageName();
-        if (!StringUtils.isEmpty(installerId)) {
-          return installerId;
-        }
-        String initiatingId = sourceInfo.getInitiatingPackageName();
-        if (!StringUtils.isEmpty(initiatingId)) {
-          return initiatingId;
-        }
-      } catch (Throwable t) {
-        android.util.Log.e("x-core", "Unable to determine installer package via modern API", t);
-        t.printStackTrace();
+    try {
+      android.content.pm.InstallSourceInfo sourceInfo = context.getPackageManager().getInstallSourceInfo(packageName);
+      String installerId = sourceInfo.getInstallingPackageName();
+      if (!StringUtils.isEmpty(installerId)) {
+        return installerId;
       }
+      String initiatingId = sourceInfo.getInitiatingPackageName();
+      if (!StringUtils.isEmpty(initiatingId)) {
+        return initiatingId;
+      }
+    } catch (Throwable t) {
+      android.util.Log.e("x-core", "Unable to determine installer package via modern API", t);
+      t.printStackTrace();
     }
     try {
       String installerPackageName = context.getPackageManager().getInstallerPackageName(packageName);
@@ -190,7 +187,7 @@ public class AppInstallationUtil {
       case InstallerId.GOOGLE_PLAY:
       case InstallerId.MEMU_EMULATOR: {
         //noinspection ObsoleteSdkInt
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
+        return true;
       }
       case InstallerId.GALAXY_STORE:
       case InstallerId.HUAWEI_APPGALLERY:
@@ -292,3 +289,4 @@ public class AppInstallationUtil {
     }
   }
 }
+// endregion

@@ -16,6 +16,7 @@
  *
  * File created on 13/02/2017
  */
+// region @MadeByLLM("gpt-6", id = "android13-arm64")
 
 package me.vkryl.android.util;
 
@@ -82,27 +83,17 @@ public interface ViewProvider extends InvalidateDelegate, LayoutDelegate, Invali
 
   @SuppressWarnings("deprecation")
   default void invalidate (int left, int top, int right, int bottom) {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-      invalidate();
-    } else {
-      performWithViews(view -> view.invalidate(left, top, right, bottom));
-    }
+    invalidate();
   }
 
   @SuppressWarnings("deprecation")
   default void invalidate (Rect dirty) {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-      performWithViews(view -> view.invalidate(dirty));
-    } else {
-      invalidate();
-    }
+    performWithViews(view -> view.invalidate(dirty));
   }
 
   default void invalidateOutline (boolean invalidate) {
     performWithViews(view -> {
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-        view.invalidateOutline();
-      }
+      view.invalidateOutline();
       if (invalidate) {
         view.invalidate();
       }
@@ -120,16 +111,7 @@ public interface ViewProvider extends InvalidateDelegate, LayoutDelegate, Invali
 
   @SuppressWarnings("deprecation")
   default void invalidateParent (int left, int top, int right, int bottom) {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-      invalidateParent();
-    } else {
-      performWithViews(view -> {
-        ViewParent parent = view.getParent();
-        if (parent instanceof View) {
-          ((View) parent).invalidate(left, top, right, bottom);
-        }
-      });
-    }
+    invalidateParent();
   }
 
   default void performClickSoundFeedback () {
@@ -147,3 +129,4 @@ public interface ViewProvider extends InvalidateDelegate, LayoutDelegate, Invali
     return successCount > 0;
   }
 }
+// endregion

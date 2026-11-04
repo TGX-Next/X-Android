@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+// region @MadeByLLM("gpt-6", id = "android13-arm64")
 
 package me.vkryl.android;
 
@@ -37,26 +38,12 @@ public final class ViewUtils {
   @SuppressWarnings("deprecation")
   public static void setBackground (View view, Drawable drawable) {
     if (view != null) {
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-        view.setBackground(drawable);
-      } else {
-        view.setBackgroundDrawable(drawable);
-      }
+      view.setBackground(drawable);
     }
   }
 
   public static String getActionName (MotionEvent e) {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-      return MotionEvent.actionToString(e.getAction());
-    } else {
-      switch (e.getAction()) {
-        case MotionEvent.ACTION_DOWN: return "ACTION_DOWN";
-        case MotionEvent.ACTION_UP: return "ACTION_UP";
-        case MotionEvent.ACTION_MOVE: return "ACTION_MOVE";
-        case MotionEvent.ACTION_CANCEL: return "ACTION_CANCEL";
-      }
-      return "ACTION:" + e.getAction();
-    }
+    return MotionEvent.actionToString(e.getAction());
   }
 
   public static void runJustBeforeBeingDrawn (final View view, final Runnable runnable) {
@@ -74,7 +61,7 @@ public final class ViewUtils {
   @SuppressWarnings("deprecation")
   public static void hapticVibrate (View view, boolean isForce, boolean ignoreSetting) {
     if (view != null) {
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && ignoreSetting) {
+      if ((ignoreSetting)) {
         // TODO[sdk]: replacement for HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING
       }
       int feedbackConstant = isForce ? HapticFeedbackConstants.LONG_PRESS : HapticFeedbackConstants.KEYBOARD_TAP;
@@ -94,3 +81,4 @@ public final class ViewUtils {
     // pager.requestLayout();
   }
 }
+// endregion
