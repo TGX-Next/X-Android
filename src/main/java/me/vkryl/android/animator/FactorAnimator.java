@@ -16,7 +16,6 @@
  *
  * File created on 26/10/2016
  */
-// region @MadeByLLM("gpt-6", id = "android13-arm64")
 
 package me.vkryl.android.animator;
 
@@ -289,4 +288,3 @@ public class FactorAnimator {
     }
   }
 }
-// endregion

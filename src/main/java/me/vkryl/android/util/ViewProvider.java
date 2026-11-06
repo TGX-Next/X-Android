@@ -16,7 +16,6 @@
  *
  * File created on 13/02/2017
  */
-// region @MadeByLLM("gpt-6", id = "android13-arm64")
 
 package me.vkryl.android.util;
 
@@ -129,4 +128,3 @@ public interface ViewProvider extends InvalidateDelegate, LayoutDelegate, Invali
     return successCount > 0;
   }
 }
-// endregion

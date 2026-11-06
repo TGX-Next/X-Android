@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// region @MadeByLLM("gpt-6", id = "android13-arm64")
 
 @file:JvmName("StorageUtils")
 
@@ -25,4 +24,3 @@ import android.os.StatFs
 fun StatFs.freeMemorySize (): Long = blockSizeLong * availableBlocksLong
 
 fun StatFs.totalMemorySize (): Long = blockSizeLong * blockCountLong
-// endregion

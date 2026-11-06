@@ -16,7 +16,6 @@
  *
  * File created on 11/09/2022, 12:41.
  */
-// region @MadeByLLM("gpt-6", id = "android13-arm64")
 
 package me.vkryl.android.html;
 
@@ -141,4 +140,3 @@ public class HtmlParser {
     }
   }
 }
-// endregion

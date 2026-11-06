@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// region @MadeByLLM("gpt-6", id = "android13-arm64")
 
 package me.vkryl.android;
 
@@ -81,4 +80,3 @@ public final class ViewUtils {
     // pager.requestLayout();
   }
 }
-// endregion

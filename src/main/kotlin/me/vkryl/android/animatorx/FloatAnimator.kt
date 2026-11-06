@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// region @MadeByLLM("gpt-6", id = "android13-arm64")
 
 @file:Suppress("MemberVisibilityCanBePrivate")
 
@@ -116,4 +115,3 @@ class FloatAnimator @JvmOverloads constructor(
     }
   }
 }
-// endregion
